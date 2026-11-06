@@ -1,0 +1,368 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\usepackage{xurl}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{4pt}
+\allowdisplaybreaks
+\title{An endpoint lower bound for Schatten--Hlawka constants}
+\author{Anonymous}
+\date{6 November 2026\\Version 0.1.0-candidate\\\small DOI: \href{https://doi.org/10.5281/zenodo.23999268}{10.5281/zenodo.23999268}}
+\begin{document}
+\maketitle
+
+
+AI-assisted, unrefereed mathematical research note. No external human peer review or formal proof certification is claimed.
+
+\begin{abstract}
+
+Let \(C_p\) be the least dimension-independent constant comparing the three-term triangle deficit with the sum of the three pair deficits in Schatten \(p\)-norm. Using a known \(2\times2\) rank-one projector construction due to Ezzeri Esa, we prove \[
+\liminf_{\varepsilon\downarrow0}\varepsilon\log(1/\varepsilon)C_{1+\varepsilon}\ge\frac23.
+\] For the explicit choice of the construction parameter \(t=3\varepsilon/4\), we obtain the more precise reciprocal-ratio expansion \[
+R_{1+\varepsilon}(3\varepsilon/4)^{-1}
+=\frac32\varepsilon\log(1/\varepsilon)
++\left(3+\frac32\log\frac43-\log2\right)\varepsilon
++O\!\left(\varepsilon^2\log^2(1/\varepsilon)\right).
+\] We also prove that the supremum of \(R_p(t)\) over the full natural parameter range \(0<t\le1\) has the same reciprocal expansion. Every maximizing parameter is \(3\varepsilon/4-(3/8)\varepsilon^2\log(1/\varepsilon)+O(\varepsilon^2)\). A fixed-amplitude comparison explains the original cancellation choice, and a compact-scale loss formula describes sensitivity. These are results within specified matrix families, not an unrestricted upper bound. The contribution claimed here is quantitative endpoint analysis, not the matrix construction, divergence at \(p=1\), or finiteness for \(1<p<\infty\). A bounded prior-art search found no previous statement of this rate, but does not establish priority.
+
+\end{abstract}
+\section*{1. The problem and the exact scope of the result}\label{the-problem-and-the-exact-scope-of-the-result}
+
+A triangle deficit measures how far a norm is from equality in the triangle inequality. The question here is whether near additivity for all three pairs of matrices forces near additivity for their total sum, with a multiplier independent of matrix dimensions. Large multipliers indicate that three-way cancellation can substantially exceed its pairwise indicators. Our examples impose a necessary growth rate on such a multiplier; they do not provide a sufficient error bound for arbitrary data.
+
+For a finite complex rectangular matrix \(A\), let \[
+\|A\|_p=\left(\sum_j s_j(A)^p\right)^{1/p},\qquad 1\le p<\infty,
+\] where \(s_j(A)\) are its singular values. Put \[
+\delta_p(A,B)=\|A\|_p+\|B\|_p-\|A+B\|_p,
+\] \[
+\Delta_p(X,Y,Z)=\|X\|_p+\|Y\|_p+\|Z\|_p-\|X+Y+Z\|_p.
+\] Let \(C_p\in[0,+\infty]\) be the infimum of constants \(C\ge0\) for which \[
+\Delta_p(X,Y,Z)\le C\bigl(\delta_p(X,Y)+\delta_p(X,Z)+\delta_p(Y,Z)\bigr) \tag{1}
+\] holds for every pair of positive integers \(N,M\) and every triple \(X,Y,Z\in\mathbb C^{N\times M}\). If no finite constant works, set \(C_p=+\infty\). This definition includes triples with zero pair-deficit sum.
+
+The problem is a norm-deficit form of the Hornich--Hlawka question. The Hilbert benchmark is \(C_2=1\), as recorded by Audenaert and Kittaneh. The problem was posed by Audenaert and Kittaneh (2012, Section 8.2, Problem 7). The current MI-25 record reports the trace-norm endpoint obstruction and Esa's recent proof of finiteness for \(1<p<\infty\); its sharp values remain undetermined in general. We use the record to describe the problem's status, without independently certifying all the reported proofs. The theorem below does not require finiteness of \(C_p\). Colbrook's earlier trace-endpoint note (11 September 2026, Theorem 1.1) gives a distinct real rectangular construction at fixed \(p=1\). Esa's two-dimensional construction is the one analyzed here. Lee (2026, Theorem 4.3) studies a coordinate-space reduction for the Hornich--Hlawka inequality; it is not a reduction of arbitrary noncommuting matrix triples to our family.
+
+The argument has three stages: an exact scalar expression for the inherited matrices, a uniform endpoint expansion, and exclusion of competing parameter scales within that family. The balance is between a trace-endpoint pair deficit of order \(t^2\) and an exponent perturbation of order \((p-1)t\log(1/t)\). Sections 5.1--5.2 describe the optimizer more precisely, and Section 6 checks a fixed-amplitude variation without asserting global sharpness.
+
+\textbf{Theorem 1 (endpoint lower bound).} For every fixed \(c>0\), the explicit real symmetric \(2\times2\) matrices in Section 2 give, with \(t=c\varepsilon\), a positive ratio \(R_{1+\varepsilon}(c\varepsilon)\le C_{1+\varepsilon}\) satisfying \[
+R_{1+\varepsilon}(c\varepsilon)^{-1}
+=\frac32\varepsilon\log(1/\varepsilon)
++\left(2c-\frac32\log c+\frac32-\log2\right)\varepsilon
++O_c\!\left(\varepsilon^2\log^2(1/\varepsilon)\right) \tag{2}
+\] as \(\varepsilon\downarrow0\). In particular, \[
+\liminf_{\varepsilon\downarrow0}\varepsilon\log(1/\varepsilon)C_{1+\varepsilon}\ge\frac23. \tag{3}
+\] Among fixed linear scales \(t=c\varepsilon\), the coefficient of the second term in (2) is uniquely minimised by \(c=3/4\). Its value there is \[
+K=3+\frac32\log(4/3)-\log2. \tag{4}
+\]
+
+All logarithms are natural. The asymptotics do not assert that the lower bound is sharp for arbitrary matrix triples, or that an asymptotic equivalent for \(C_p\) has been established.
+
+\section*{2. The known matrix family and its exact ratio}\label{the-known-matrix-family-and-its-exact-ratio}
+
+We use Esa's rank-one projector family, written with \(t\) equal to the square of the small parameter in his trace-endpoint construction. For \(0<t\le1\), set \(a=1-t\) and \[
+X_t=\begin{pmatrix}a&\sqrt{at}\\\sqrt{at}&t\end{pmatrix},\quad
+Y_t=\begin{pmatrix}a&-\sqrt{at}\\-\sqrt{at}&t\end{pmatrix},\quad
+Z_t=\begin{pmatrix}0&0\\0&-2t\end{pmatrix}. \tag{5}
+\] The matrices \(X_t,Y_t\) are rank-one orthogonal projectors: each is positive semidefinite, has determinant zero and trace one. Consequently \[
+\|X_t\|_p=\|Y_t\|_p=1,\quad \|Z_t\|_p=2t,
+\quad X_t+Y_t+Z_t=\operatorname{diag}(2a,0),
+\] so that \[
+\Delta_p(X_t,Y_t,Z_t)=4t. \tag{6}
+\] Here ``orthogonal projector'' describes each projector individually; their ranges are not orthogonal to one another.
+
+Define \[
+d(t)=\sqrt{1+4t-4t^2},\quad
+u(t)=\frac{d(t)+1-2t}{2},\quad
+v(t)=\frac{d(t)-1+2t}{2}. \tag{7}
+\] The eigenvalues of \(X_t+Z_t\) and \(Y_t+Z_t\) are \(u(t)\) and \(-v(t)\); both \(u(t),v(t)\) are positive for \(0<t<1\). At \(t=1\), they are respectively zero and one. Their singular values are therefore \(u(t),v(t)\). Also \(X_t+Y_t=\operatorname{diag}(2a,2t)\). Writing \[
+F_p(x,y)=(x^p+y^p)^{1/p},
+\] the pair-deficit sum is exactly \[
+D_p(t)=4+4t-2F_p(1-t,t)-2F_p(u(t),v(t)). \tag{8}
+\] For \(p>1\) and \(0<t<1\), \(D_p(t)>0\): all three deficits are nonnegative, and \[
+\delta_p(X_t,Y_t)=2-2F_p(1-t,t)>0
+\] because \((1-t)^p+t^p<1\). Hence \[
+R_p(t)=\frac{4t}{D_p(t)}\le C_p. \tag{9}
+\] The matrices and trace-endpoint identities are Esa's: see the pinned \texttt{TraceEndpoint.lean} definitions \nolinkurl{traceEndpointX}, \nolinkurl{traceEndpointY}, \nolinkurl{traceEndpointZ} and results \nolinkurl{traceEndpoint_tripleGap}, \nolinkurl{traceEndpoint_pairGapSum}, with source parameter \(s=\sqrt t\) and \(c=\sqrt{1-t}\). The general-\(p\) singular-value calculation above is supplied here and is not claimed to have been formally checked by that source. At \(t=1\), direct substitution gives \(D_p(1)=4\) and \(R_p(1)=1\). The endpoint analysis below concerns the same inherited construction.
+
+\section*{3. A uniform Taylor estimate}\label{a-uniform-taylor-estimate}
+
+\textbf{Lemma 2.} Suppose \(x\) lies in a fixed compact subinterval of \((0,\infty)\), and \(y/x=r\in(0,r_0]\), where \(r_0<1\) is fixed. For \(p\) in a fixed interval \([1,1+\eta]\), \[
+\left|\partial_p^2 F_p(x,y)\right|\le C y\bigl(1+|\log(y/x)|^2\bigr), \tag{10}
+\] with \(C\) independent of \(p,x,y\) in the stated ranges.
+
+\textbf{Proof.} Write \(F_p(x,y)=x\exp(g(p))\), where \[
+g(p)=\frac{L(p)}p,\qquad L(p)=\log(1+r^p).
+\] Then \[
+L'(p)=\frac{r^p\log r}{1+r^p},\qquad
+L''(p)=\frac{r^p(\log r)^2}{(1+r^p)^2}.
+\] Since \(r^p\le r\) for \(p\ge1\), \[
+|L|\le r,\quad |L'|\le r|\log r|,\quad |L''|\le r|\log r|^2.
+\] The identities \[
+g'=L'/p-L/p^2,\qquad
+g''=L''/p-2L'/p^2+2L/p^3
+\] give \(|g'|\le Cr(1+|\log r|)\) and \(|g''|\le Cr(1+|\log r|^2)\). Since \(e^g\) is bounded and \[
+\partial_p^2F_p=x e^g\bigl(g''+(g')^2\bigr),
+\] we obtain (10), using \(xr=y\) and \(r^2\le r\). \(\square\)
+
+The factor \(y\) in (10) is essential. A remainder estimate which lost that factor would not justify the two-term expansion after dividing the deficit by \(t\).
+
+\section*{4. Proof of Theorem 1}\label{proof-of-theorem-1}
+
+At \(p=1\), \(F_1(1-t,t)=1\) and \(F_1(u,v)=d(t)\), whence \[
+D_1(t)=2+4t-2d(t)=8t^2+O(t^3). \tag{11}
+\] Direct differentiation gives \[
+\left.\partial_pF_p(x,y)\right|_{p=1}
+=x\log x+y\log y-(x+y)\log(x+y). \tag{12}
+\] For the first pair in (8), \[
+\left.\partial_pF_p(1-t,t)\right|_{p=1}
+=t\log t-t+O(t^2). \tag{13}
+\] For the second pair, the expansions \[
+d(t)=1+2t-4t^2+O(t^3),\quad
+u(t)=1-2t^2+O(t^3),\quad
+v(t)=2t-2t^2+O(t^3)
+\] and (12) yield \[
+\left.\partial_pF_p(u(t),v(t))\right|_{p=1}
+=2t\log(2t)-2t+O(t^2|\log t|). \tag{14}
+\] To check (14) explicitly, \(u\log u=O(t^2)\), \(v\log v=2t\log(2t)+O(t^2|\log t|)\), and \(d\log d=2t+O(t^2)\).
+
+Combining (13)--(14) with (8) gives \[
+\left.\partial_pD_p(t)\right|_{p=1}
+=6t\log(1/t)+(6-4\log2)t+O(t^2|\log t|). \tag{15}
+\] For both instances of \(F_p\), the larger argument stays bounded above and away from zero as \(t\downarrow0\), while the smaller argument is comparable with \(t\). Lemma 2 therefore applies uniformly for \(1\le p\le1+\varepsilon\) and sufficiently small \(\varepsilon,t\). Taylor's theorem in \(p\), together with (11) and (15), gives \[
+\begin{split}
+D_{1+\varepsilon}(t)
+={}&8t^2+\varepsilon\bigl[6t\log(1/t)+(6-4\log2)t\bigr]\\
+&+O\!\left(t^3+\varepsilon t^2|\log t|
++\varepsilon^2t(1+|\log t|^2)\right).
+\end{split}\tag{16}
+\] All constants in (16) can be chosen uniformly for \(0<t<t_0\), \(0<\varepsilon<\varepsilon_0\), with fixed sufficiently small \(t_0,\varepsilon_0\).
+
+Dividing (16) by \(4t\) and putting \(t=c\varepsilon\), for fixed \(c>0\), proves (2). In particular, \[
+\frac{R_{1+\varepsilon}(c\varepsilon)^{-1}}{\varepsilon\log(1/\varepsilon)}\longrightarrow\frac32,
+\] so \(\varepsilon\log(1/\varepsilon)R_{1+\varepsilon}(c\varepsilon)\to2/3\). Inequality (9) proves (3), including the possibility of infinite \(C_{1+\varepsilon}\).
+
+Finally, the \(c\)-dependent coefficient in (2) has derivative \(2-3/(2c)\) and second derivative \(3/(2c^2)>0\). It therefore has its unique minimum at \(c=3/4\), and substitution gives (4). \(\square\)
+
+\section*{5. Optimisation within the known projector family}\label{optimisation-within-the-known-projector-family}
+
+The matrices in (5) and the formula (8) extend to \(0<t\le1\). At \(t=1\), \(D_p(1)=4\); for \(0<t<1\), positivity follows as before. Define \[
+E_p(t)=R_p(t)^{-1},\qquad M_p=\sup_{0<t\le1}R_p(t).
+\]
+
+\textbf{Theorem 3 (family optimum).} For all sufficiently small \(\varepsilon>0\), \(R_{1+\varepsilon}\) attains its supremum in \((0,1)\). Every maximiser \(t_\varepsilon\) satisfies, uniformly over the set of maximisers, \[
+t_\varepsilon=\frac34\varepsilon
++O\!\left(\varepsilon^2\log(1/\varepsilon)\right). \tag{17}
+\] Moreover, \[
+M_{1+\varepsilon}^{-1}
+=\frac32\varepsilon\log(1/\varepsilon)+K\varepsilon
++O\!\left(\varepsilon^2\log^2(1/\varepsilon)\right), \tag{18}
+\] where \(K\) is given by (4). In particular, \[
+\varepsilon\log(1/\varepsilon)M_{1+\varepsilon}\longrightarrow\frac23.
+\] No uniqueness assertion about the maximiser is made. The result concerns this family; \(M_p\le C_p\) need not be equality.
+
+\textbf{Proof.} We give the derivative estimates needed to exclude other parameter scales. Fix \(0<\eta<1/2\) and take \(1\le p\le1+\eta\), with \(\varepsilon=p-1\). All constants in the small-\(t\) estimates that follow are uniform in \(p\). We use \(O_{C^1}(t^\alpha)\) to mean a remainder bounded by \(Ct^\alpha\) whose \(t\)-derivative is bounded by \(Ct^{\alpha-1}\); displayed factors of \(\varepsilon\) apply to both bounds.
+
+For \(H_p(s)=(1+s)^{1/p}\), \[
+H_p''(s)=-\frac{\varepsilon}{p^2}(1+s)^{1/p-2}.
+\] Thus \(H_p(s)=1+s/p+\rho_p(s)\), where \(|\rho_p(s)|\le C\varepsilon s^2\) and \(|\rho_p'(s)|\le C\varepsilon s\) on a fixed bounded interval of nonnegative \(s\). Whenever \(x\asymp1\), \(y\asymp t\), and \(x',y'\) are bounded, applying this with \(s=(y/x)^p\) gives \[
+F_p(x,y)=x+\frac{y^p x^{1-p}}p
++O_{C^1}(\varepsilon t^{2p}). \tag{19}
+\] Indeed, \(s=O(t^p)\), \(s'=O(t^{p-1})\), and differentiation of \(x\rho_p(s)\) gives the asserted derivative bound.
+
+Using \((1-t)^{-\varepsilon}=1+\varepsilon t+O_{C^1}(\varepsilon t^2)\), (19) gives \[
+\begin{split}
+F_p(1-t,t)
+={}&1-t+\frac{t^p}p+\frac{\varepsilon}p t^{p+1}\\
+&+O_{C^1}(\varepsilon t^{p+2}+\varepsilon t^{2p}).
+\end{split} \tag{20}
+\] The expansions of \(u,v\) used in Section 4 have their corresponding derivative remainder bounds. In particular, \[
+\left(\frac{v(t)}{2t}\right)^p u(t)^{1-p}
+=1-pt+O_{C^1}(t^2).
+\] Applying (19) again yields \[
+\begin{split}
+F_p(u,v)
+={}&1-2t^2+\frac{2^p}p t^p-2^p t^{p+1}\\
+&+O_{C^1}(t^3+t^{p+2}+\varepsilon t^{2p}).
+\end{split} \tag{21}
+\] Substitution into (8), followed by division by \(4t\), now gives \[
+E_p(t)=\frac32-b(p)t^\varepsilon+t+c(p)t^{1+\varepsilon}+r(p,t), \tag{22}
+\] where \[
+b(p)=\frac{1+2^p}{2p},\qquad c(p)=2^{p-1}-\frac{p-1}{2p},
+\] \[
+|r(p,t)|\le C(t^2+\varepsilon t^{1+2\varepsilon}),\qquad
+|\partial_t r(p,t)|\le C(t+\varepsilon t^{2\varepsilon}). \tag{23}
+\] These estimates follow from the controlled remainders in (20)--(21), not from differentiating an unspecified big-\(O\) term. Therefore \[
+E_p'(t)=-b(p)\varepsilon t^{\varepsilon-1}
++1+p\,c(p)t^\varepsilon+O(t+\varepsilon). \tag{24}
+\]
+
+For fixed \(p>1\) in this range, (22) shows \(E_p(t)\to3/2\) as \(t\downarrow0\). Extend it continuously to \([0,1]\) by this value. The extension has a minimum. Also, monotonicity of the scalar \(\ell_p\)-norm gives \(E_p(t)\ge E_1(t)\), and rationalisation gives \[
+E_1(t)=\frac{4t}{1+2t+\sqrt{1+4t-4t^2}}>0\quad(0<t\le1). \tag{25}
+\] Theorem 1 supplies a trial point whose reciprocal ratio tends to zero. Hence every minimum is interior for small \(\varepsilon\), and every minimiser tends to zero uniformly: for any fixed \(\delta>0\), (25) has a positive minimum on \([\delta,1]\).
+
+At any such minimiser \(t=t_\varepsilon\), (24) implies \[
+b(1+\varepsilon)\varepsilon t^{\varepsilon-1}
+=1+(1+\varepsilon)c(1+\varepsilon)t^\varepsilon+O(t+\varepsilon). \tag{26}
+\] Because \(b(1)=3/2\), \(c(1)=1\), and \(0<t^\varepsilon\le1\), the right side is bounded above and bounded away from zero. Consequently \(t^{1-\varepsilon}\asymp\varepsilon\), with constants independent of the minimiser. Since \(\varepsilon\log\varepsilon\to0\), taking logarithms gives \[
+\log t=\frac{\log\varepsilon+O(1)}{1-\varepsilon},\qquad
+t\asymp\varepsilon,\qquad
+t^\varepsilon=1+O(\varepsilon\log(1/\varepsilon)). \tag{27}
+\] Solving (26) for \(t/\varepsilon\) and using (27), \[
+\frac{t}{\varepsilon}
+=\frac{b(1+\varepsilon)t^\varepsilon}
+{1+(1+\varepsilon)c(1+\varepsilon)t^\varepsilon+O(t+\varepsilon)}
+=\frac34+O(\varepsilon\log(1/\varepsilon)),
+\] which proves (17).
+
+Finally, (16), divided by \(4t\), applies uniformly at these minimisers. With \(k=t_\varepsilon/\varepsilon\) and \(L=\log(1/\varepsilon)\), it gives \[
+E_{1+\varepsilon}(t_\varepsilon)
+=\frac32\varepsilon L+\varepsilon\phi(k)+O(\varepsilon^2L^2),
+\qquad
+\phi(k)=2k-\frac32\log k+\frac32-\log2.
+\] Here \(k=3/4+O(\varepsilon L)\), \(\phi'(3/4)=0\), and \(\phi''\) is bounded near \(3/4\). Thus \(\phi(k)=K+O(\varepsilon^2L^2)\). Substitution proves (18), because \(\min E_p=M_p^{-1}\). \(\square\)
+
+\subsection*{5.1. A logarithmic correction to the maximizing parameter}\label{a-logarithmic-correction-to-the-maximizing-parameter}
+
+\textbf{Corollary 4.} Uniformly over every maximizer in Theorem 3, \[
+t_\varepsilon=\frac34\varepsilon-\frac38\varepsilon^2\log(1/\varepsilon)
++O(\varepsilon^2).
+\] In particular the normalized first correction converges to \(-3/8\). This does not assert uniqueness.
+
+\textbf{Proof.} Put \(L=\log(1/\varepsilon)\), \(k=t_\varepsilon/\varepsilon\) and \(w=t_\varepsilon^\varepsilon\). The localization proved above places \(k\) in a fixed compact interval \([A,B]\subset(0,\infty)\), independently of the maximizer. Thus \[
+\varepsilon\log t_\varepsilon=-\varepsilon L+O(\varepsilon),\qquad
+w=1-\varepsilon L+O(\varepsilon).
+\] Indeed the exponential Taylor remainder is bounded by a constant times \(\varepsilon^2(L+1)^2=O(\varepsilon)\). Equation (26), with its uniform error denoted by \(\eta_\varepsilon=O(\varepsilon)\), gives \[
+k=\frac{b(1+\varepsilon)w}
+ {1+(1+\varepsilon)c(1+\varepsilon)w+\eta_\varepsilon}
+ =\frac{(3/2)w}{1+w}+O(\varepsilon).
+\] The denominator stays uniformly away from zero. To justify the last error directly, subtract the displayed rational expressions: their numerator is \[
+[b(1+\varepsilon)-3/2]w(1+w)
+-\frac32w\{[(1+\varepsilon)c(1+\varepsilon)-1]w+\eta_\varepsilon\},
+\] which is \(O(\varepsilon)\), and both denominators are bounded below. For \(f(w)=3w/[2(1+w)]\), \(f(1)=3/4\), \(f'(1)=3/8\), and \(f''\) is bounded near one. Therefore \[
+k=\frac34+\frac38(w-1)+O((w-1)^2+\varepsilon)
+=\frac34-\frac38\varepsilon L+O(\varepsilon),
+\] using \(\varepsilon^2L^2=O(\varepsilon)\). Multiplication by \(\varepsilon\) proves the claim. All constants are independent of the chosen maximizer. \(\square\)
+
+\subsection*{5.2. The cost of a different linear scale}\label{the-cost-of-a-different-linear-scale}
+
+The leading normalized ratio is identical at every fixed positive linear scale. The second term distinguishes those scales.
+
+\textbf{Corollary 5 (compact-scale loss).} For any compact interval \(J\subset(0,\infty)\), uniformly for \(k\in J\), \[
+E_{1+\varepsilon}(k\varepsilon)-M_{1+\varepsilon}^{-1}
+=\frac32\varepsilon\left(x-1-\log x\right)
++O_J(\varepsilon^2\log^2(1/\varepsilon)),\qquad x=\frac{4k}{3}.
+\] The leading loss coefficient is nonnegative and vanishes only at \(k=3/4\).
+
+\textbf{Proof.} Equation (16) is uniform when \(t=k\varepsilon\) and \(k\) remains in \(J\). Subtract (18) to obtain \(\varepsilon[\phi(k)-K]\) with the stated error. Direct substitution gives \(\phi(k)-K=(3/2)(x-1-\log x)\). The inequality \(\log x\le x-1\), with equality only at one, proves the final assertion. \(\square\)
+
+This is an explanatory consequence of the expansion, not a converse theorem for arbitrary near-maximizing sequences.
+
+\section*{6. Varying a fixed cancellation amplitude}\label{varying-a-fixed-cancellation-amplitude}
+
+Exact cancellation of the second diagonal entry explains the original choice of \(Z_t\). The following elementary comparison tests that choice against every other fixed positive amplitude. Its quantifiers are important: the amplitude and linear scale are fixed before \(\varepsilon\) tends to zero.
+
+\textbf{Proposition 6.} Fix \(z>0\), retain \(X_t,Y_t\) from (5), and replace \(Z_t\) by \(\operatorname{diag}(0,-zt)\). Put \(m=\min(z,2)\) and \(h=|2-z|\). Let \(R_{p,z}\) be the triple deficit divided by the sum of pair deficits for these matrices. For fixed \(c>0\), \[
+R_{1+\varepsilon,z}(c\varepsilon)^{-1}
+=A_z\varepsilon\log(1/\varepsilon)+B_z(c)\varepsilon
++O_{z,c}(\varepsilon^2\log^2(1/\varepsilon)),
+\] where \[
+A_z=\frac{1+z}{m},\qquad
+B_z(c)=\frac{2zc-(1+z)\log c+(1+z)-z\log z}{m}.
+\] Consequently, \[
+\lim_{\varepsilon\downarrow0}\varepsilon\log(1/\varepsilon)
+ R_{1+\varepsilon,z}(c\varepsilon)=\frac{\min(z,2)}{1+z}.
+\] This coefficient is uniquely largest among fixed positive \(z\) at \(z=2\), with value \(2/3\). For each fixed \(z\), the second coefficient is uniquely minimized among fixed positive \(c\) at \(c=(1+z)/(2z)\).
+
+\textbf{Proof.} For \(0<t<1\), define \[
+d_z=\sqrt{1+2zt+(z^2-4z)t^2},\quad
+u_z=\frac{d_z+1-zt}{2},\quad v_z=\frac{d_z-1+zt}{2}.
+\] The mixed sums have trace \(1-zt\) and determinant \(-zt(1-t)\), hence eigenvalues \(u_z,-v_z\), both magnitudes positive. The exact pair and triple deficits are \[
+D_{p,z}=4+2zt-2F_p(1-t,t)-2F_p(u_z,v_z),
+\] \[
+T_{p,z}=2+zt-F_p(2(1-t),ht).
+\] In particular \(T_{1,z}=2mt\). For \(p>1\), the first pair deficit is positive and the others nonnegative, so \(D_{p,z}>0\). Scalar norm monotonicity gives \(T_{p,z}\ge2mt>0\), making \(R_{p,z}=T_{p,z}/D_{p,z}\le C_p\) legitimate. Unless \(z=2\), the triple deficit depends on \(p\); it must not be replaced by \(2mt\) in the exact ratio.
+
+Write \(\ell=\log(1/t)\). Taylor expansion at zero gives \[
+d_z=1+zt-2zt^2+O_z(t^3),\quad
+u_z=1-zt^2+O_z(t^3),\quad v_z=zt-zt^2+O_z(t^3).
+\] Thus \(D_{1,z}=4zt^2+O_z(t^3)\). Formula (12) gives \[
+\left.\partial_pF_p(u_z,v_z)\right|_{1}
+=zt\log(zt)-zt+O_z(t^2(1+\ell)).
+\] Here \(u_z\log u_z=O_z(t^2)\), \(v_z\log v_z=zt\log(zt)+O_z(t^2(1+\ell))\), and \(d_z\log d_z=zt+O_z(t^2)\). Combining this with (13) and Lemma 2 yields \[
+D_{1+\varepsilon,z}
+=4zt^2+2\varepsilon t[(1+z)\ell+(1+z)-z\log z]
++O_z(t^3+\varepsilon t^2(1+\ell)+\varepsilon^2t(1+\ell^2)).
+\] All these estimates hold uniformly for sufficiently small \(t,\varepsilon\), with constants depending on the fixed \(z\).
+
+For \(h>0\), applying (12) to \(2(1-t),ht\) gives \[
+\left.\partial_pF_p(2(1-t),ht)\right|_1
+=ht[\log t+\log(h/2)-1]+O_z(t^2).
+\] Lemma 2 supplies the corresponding second-order remainder, and hence \[
+T_{1+\varepsilon,z}
+=2mt+\varepsilon ht[\ell+1+\log(2/h)]
++O_z(\varepsilon t^2(1+\ell)+\varepsilon^2t(1+\ell^2)).
+\] For \(h=0\), \(T_{p,2}=4t\) exactly. The first-derivative estimate from the proof of Lemma 2 also gives, without requiring \(\varepsilon\ell\) to be small, \[
+0\le T_{1+\varepsilon,z}-2mt\le C_z\varepsilon t(1+\ell),
+\qquad
+\frac{D_{1+\varepsilon,z}}{2mt}\le C_z[t+\varepsilon(1+\ell)].
+\] The second inequality follows by integrating the first \(p\)-derivatives of the two terms in \(D\), starting from \(D_{1,z}=O_z(t^2)\). Therefore \[
+\left|\frac{D_{1+\varepsilon,z}}{T_{1+\varepsilon,z}}
+-\frac{D_{1+\varepsilon,z}}{2mt}\right|
+\le C_z\varepsilon(1+\ell)[t+\varepsilon(1+\ell)].
+\] Division by the exact triple deficit consequently gives \[
+R_{1+\varepsilon,z}(t)^{-1}
+=\frac{2z}{m}t+\frac{1+z}{m}\varepsilon\ell
++\frac{1+z-z\log z}{m}\varepsilon
++O_z(t^2+\varepsilon t(1+\ell)+\varepsilon^2(1+\ell^2)).
+\] Set \(t=c\varepsilon\) to obtain the stated expansion and limit. The coefficient \(z/(1+z)\) increases on \(0<z\le2\), whereas \(2/(1+z)\) decreases on \(z\ge2\). Finally, \[
+B_z'(c)=\frac{2z-(1+z)/c}{m},\qquad
+B_z''(c)=\frac{1+z}{mc^2}>0.
+\] Since \(B_z(c)\) diverges at both ends of the positive half-line, its unique global minimum is the stated one. At \(z=2\) this recovers \(c=3/4\) and \(K\). \(\square\)
+
+The proposition does not optimize over \(z=z(\varepsilon)\), over all \(t\) for other amplitudes, or over arbitrary matrix triples.
+
+\section*{7. Interpretation and limitations}\label{interpretation-and-limitations}
+
+The mechanism is a balance between two small terms. At \(p=1\), the pair-deficit sum is of order \(t^2\), whereas the triple deficit is exactly \(4t\). Increasing \(p\) to \(1+\varepsilon\) contributes a term of order \(\varepsilon t\log(1/t)\) to the pair deficit. Choosing \(t\) proportional to \(\varepsilon\) makes the reciprocal ratio of order \(\varepsilon\log(1/\varepsilon)\).
+
+This proves that any valid dimension-independent constants grow at least at the stated rate as \(p\downarrow1\). It does \textbf{not} prove a matching upper bound. In particular, the true growth may be faster. The second coefficient \(K\) belongs to the exhibited lower bound and is not asserted to be a coefficient in an asymptotic expansion of \(C_p\).
+
+Theorem 3 shows that changing the parameter scale within the specified construction cannot improve the leading coefficient \(2/3\) or the second reciprocal coefficient \(K\). It supplies no upper bound for triples outside that construction.
+
+The contribution is a quantitative endpoint constraint obtained from an inherited construction, together with its parameter localization and the fixed-amplitude comparison. A matching unrestricted upper bound remains open here. The fixed-amplitude comparison does not cover amplitudes moving with the exponent, nor all parameter scales for amplitudes other than two.
+
+\section*{8. Verification and declarations}\label{verification-and-declarations}
+
+The proofs above are informal analytic proofs. The companion verification record describes exact rational projector checks, direct singular-value checks of (6)--(9), high-precision asymptotic checks, and numerical stationary-point checks. Such finite checks support implementation accuracy and catch algebraic errors; they do not establish the unrestricted theorems. No Lean proof has been created or checked for Theorems 1 or 3. AI-agent checks are not substitutes for independent human refereeing.
+
+Near the endpoint, the denominator in (8) subtracts quantities of order one to obtain a quantity of order \(\varepsilon^2\log(1/\varepsilon)\) at the relevant scale. Double-precision comparisons test the closed formula only at the listed moderate parameters. Higher-precision small-\(\varepsilon\) evaluations are numerical diagnostics, not rigorous enclosures. The rationalized expression (25) avoids one such subtraction at the trace endpoint. At fixed \(p>1\), \(R_p(t)\to2/3\) as \(t\downarrow0\); the divergence proved here instead uses a joint limit with \(t\) comparable to \(p-1\).
+
+\textbf{Data availability.} The proof is contained in this note. No empirical dataset is used; companion computational diagnostics have only the scope stated in their verification record.
+
+\textbf{Authorship and AI assistance.} Anonymous attribution is retained. AI assistance was used in analysis, drafting and internal review. No human authorship contribution beyond what is documented is inferred.
+
+\textbf{Ethics.} This theoretical study involves no human participants or personal data.
+
+\textbf{Funding and competing interests.} Funding and competing-interest information has not been supplied; no funding or absence-of-conflict certification is inferred.
+
+\textbf{Licence.} Original prose is dedicated under CC0. Cited source material retains its own attribution and licence.
+
+\section*{References}\label{references}
+
+Audenaert, K. M. R., \& Kittaneh, F. (2012). \emph{Problems and conjectures in matrix and operator inequalities}. arXiv. \url{https://arxiv.org/abs/1201.5232}
+
+Esa, E. (2026). \emph{hlawka-schatten: Blueprint, trace-endpoint construction, and proof source} {[}Software and mathematical manuscript; pinned commit \nolinkurl{1829591140522193a81ae721330e4d775c81123e}{]}. GitHub. \url{https://github.com/savarin/hlawka-schatten/tree/1829591140522193a81ae721330e4d775c81123e}
+
+Open Problems in Numerical Linear Algebra contributors. (2026). \emph{MI-25: Schatten Hlawka constants} {[}Living problem record; accessed 6 November 2026{]}. GitHub. \url{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-inequalities-and-norms/MI-25/README.md}
+
+Colbrook, M. J. (2026). \emph{MI-25 trace-norm endpoint solution}, Theorem 1.1, 11 September 2026. \url{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-inequalities-and-norms/MI-25/solution.tex}
+
+Lee, S. (2026). \emph{Constructions and reductions on the Hornich--Hlawka inequality and its generalizations}, arXiv:2610.23785v1, Section 4.1, Theorem 4.3. \url{https://arxiv.org/abs/2610.23785}
+
+Audenaert, K. M. R., \& Kittaneh, F. (2017). \emph{Problems and conjectures in matrix and operator inequalities}. Banach Center Publications 112, 15--31. \url{https://doi.org/10.4064/bc112-0-2}. Section 8.2, Problem 6, equation (48), p.~25. The preprint cited above numbers this Problem 7.
+
+\end{document}
+

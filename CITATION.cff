@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this unrefereed candidate and preserve its qualifications."
+title: "An endpoint lower bound for Schatten–Hlawka constants"
+type: article
+authors:
+  - name: Anonymous
+version: 0.1.0-candidate
+date-released: 2026-11-06
+doi: 10.5281/zenodo.23999268
+repository-code: "https://github.com/ipitchford/schatten-hlawka-endpoint"
+license: CC0-1.0
+abstract: "Endpoint lower-bound asymptotics and optimization within a known projector family. This unrefereed, AI-assisted candidate does not establish the unrestricted sharp constant or a matching upper bound. Original executable code is separately MIT-licensed."

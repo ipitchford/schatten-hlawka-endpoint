@@ -1,0 +1,10 @@
+Recorded producer runtime: Python 3.13.5
+NumPy 2.4.4; mpmath 1.3.0
+Decimal and Fraction are from the Python standard library.
+OPENBLAS_NUM_THREADS=1
+OMP_NUM_THREADS=1
+MKL_NUM_THREADS=1
+PYTHONDONTWRITEBYTECODE=1
+Run both normal and -O modes; see README.md.
+No GPU, network service, proof assistant or interval-arithmetic runtime is required.
+Dependency version pins are not a container or complete cross-platform lockfile.

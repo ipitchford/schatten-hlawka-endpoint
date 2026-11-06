@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1.0",
+  "contributionMap": [
+    {
+      "claim": "Unpowered three-way deficit question, trace-endpoint obstruction and interior existence",
+      "unit": "statement",
+      "paperLocation": "Sections 1–2",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Audenaert–Kittaneh Problem 6 (published); Esa and Colbrook endpoint proofs; Esa interior existence",
+      "verdict": "partially-known-cited"
+    },
+    {
+      "claim": "Two-by-two projector/cancellation family",
+      "unit": "object",
+      "paperLocation": "Section 2",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Esa TraceEndpoint.lean at pinned commit: entrywise same matrices under s=sqrt(t), c=sqrt(1-t)",
+      "verdict": "partially-known-cited"
+    },
+    {
+      "claim": "Joint-limit lower coefficient 2/3 and second reciprocal coefficient",
+      "unit": "statement",
+      "paperLocation": "Theorem 1",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Known family and fixed-p endpoint statements do not supply the coupled p,t asymptotic in inspected sources",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Uniform localization of every global family maximizer and optimized reciprocal expansion",
+      "unit": "statement",
+      "paperLocation": "Theorem 3",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Optimization remains within Esa's inherited family, not all Schatten triples",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Next optimizer displacement and compact-scale loss coefficient",
+      "unit": "statement",
+      "paperLocation": "Corollaries 4–5",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Modest analytic consequences of retained stationarity and uniform reciprocal expansions; no separate priority claim",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Fixed-amplitude comparison and best fixed amplitude within the enlarged family",
+      "unit": "statement",
+      "paperLocation": "Proposition 6",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Elementary variation of the inherited cancellation family; excludes moving amplitudes and unrestricted matrix triples",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Singular-value reduction, controlled asymptotic expansion and stationarity localization",
+      "unit": "method",
+      "paperLocation": "Sections 2–6",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "Schatten Hlawka endpoint/logarithmic/p-1/2/3/3/4; exact deficit and construction comparisons",
+          "corpus": "Primary sources listed in CITATION_AUDIT.md; bounded Evidence Press 252-release authored-source search and OpenAI/math CONTENTS index search"
+        }
+      ],
+      "closestPriorWork": "Inherited matrices and standard scalar analytic tools; contribution is the quantified application, not a new general method",
+      "verdict": "partially-known-cited"
+    }
+  ],
+  "sourcesReadInFull": [
+    {
+      "citation": "Audenaert–Kittaneh",
+      "usedFor": "Exact problem and endpoint context",
+      "readWhat": "Full relevant §8.2 in arXiv v3, Problem 7 equation (48); publisher PDF §8.2 Problem 6 equation (48), printed p.25, and primary bibliographic metadata. Not all unrelated sections.",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://arxiv.org/html/1201.5232v3; https://doi.org/10.4064/bc112-0-2"
+    },
+    {
+      "citation": "Esa",
+      "usedFor": "Inherited construction, endpoint identities and fixed-p existence comparison",
+      "readWhat": "Complete BLUEPRINT.md and TraceEndpoint.lean; selected ScalarRatio.lean definitions, removable value, compactification and finite-bound arguments. No Lean compilation or full-library audit.",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://github.com/savarin/hlawka-schatten/tree/1829591140522193a81ae721330e4d775c81123e"
+    },
+    {
+      "citation": "Colbrook",
+      "usedFor": "Separate earlier trace-norm obstruction",
+      "readWhat": "Complete MI-25 solution.tex proof dated 11 September 2026, Theorem 1.1; different real 2-by-3 family and fixed p=1 limit.",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-inequalities-and-norms/MI-25/solution.tex"
+    },
+    {
+      "citation": "Lee",
+      "usedFor": "Distinguish coordinate-space reduction from noncommuting Schatten problem",
+      "readWhat": "Section 4.1 Theorem 4.3 and complete reduction proof, abstract/theorem scope and Esa discussion; not every proof in the paper.",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://arxiv.org/html/2610.23785v1"
+    }
+  ],
+  "limitationTriage": [
+    {
+      "limitation": "Full sharp-constant conjecture",
+      "closingQuestion": "Does the family optimum equal C_p?",
+      "triedOrSearched": "Compared actual scope with original problem and inherited fixed-p existence proof.",
+      "estimatedCost": "Additional research; no reliable duration established",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "No reduction of arbitrary noncommuting triples to this family is established.",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "Matching unrestricted near-one upper bound",
+      "closingQuestion": "Can the lower rate be matched dimension-independently?",
+      "triedOrSearched": "Identified Bregman–Mazur comparison as a possible route; no uniform-in-p bound proved.",
+      "estimatedCost": "Additional research; no reliable duration established",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Compactness at each fixed p does not supply the required endpoint rate.",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "Moving amplitudes and all scales away from amplitude two",
+      "closingQuestion": "Can z depend on p and improve the leading rate?",
+      "triedOrSearched": "Proposition 6 checked for fixed z,c only.",
+      "estimatedCost": "Additional research; no reliable duration established",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Remainder constants depend on z; no uniform amplitude compactification or global optimization is proved.",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "Uniqueness of family maximizers",
+      "closingQuestion": "Is the maximizing parameter unique?",
+      "triedOrSearched": "Uniform localization and next displacement checked for every maximizer.",
+      "estimatedCost": "Additional research; no reliable duration established",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Localization and stationarity do not establish uniqueness.",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "Absolute originality or external validation",
+      "closingQuestion": "Can bounded search and internal checks establish these?",
+      "triedOrSearched": "Primary argument comparison, bounded catalogue and index searches completed.",
+      "estimatedCost": "Additional research; no reliable duration established",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Unindexed publications, all repository branches and external refereeing are not covered.",
+      "whyNotClosedNow": ""
+    }
+  ],
+  "extensionScout": {
+    "by": "Internal analytic extension and targeted transcription review",
+    "date": "2026-11-06",
+    "proposals": [
+      "Next optimizer displacement",
+      "Compact-scale loss coefficient",
+      "Fixed-amplitude enlargement",
+      "Matching unrestricted upper bound"
+    ],
+    "actions": [
+      "Derived and checked uniform next displacement for all global family maximizers without uniqueness",
+      "Added elementary compact-scale reciprocal-loss consequence",
+      "Checked corrected triple deficit and reciprocal-error division for fixed positive amplitude and scale",
+      "Retained unrestricted upper bound as unresolved; no significance claim from local refinements alone"
+    ]
+  }
+}

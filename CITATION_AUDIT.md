@@ -1,0 +1,21 @@
+# Citation and scope audit
+
+Checked 6 November 2026. This record distinguishes inspected arguments from metadata and search leads. It is not an exhaustive originality certificate or external peer review.
+
+## Primary comparisons
+
+- **Audenaert–Kittaneh.** *Problems and conjectures in matrix and operator inequalities*, Banach Center Publications **112** (2017), 15–31, DOI [10.4064/bc112-0-2](https://doi.org/10.4064/bc112-0-2). [Publisher metadata](https://www.impan.pl/en/publishing-house/banach-center-publications/all/112/0/111309/problems-and-conjectures-in-matrix-and-operator-inequalities) and [actual publisher PDF](https://www.impan.pl/shop/en/publication/transaction/download/product/111309) inspected. Published §8.2, Problem 6, equation (48), printed p.25, is the exact unpowered deficit problem. The [arXiv v3](https://arxiv.org/html/1201.5232v3) calls it Problem 7. The relevant subsection, geometric explanation and endpoint context were read; unrelated sections were not fully audited.
+- **Esa.** [Pinned source](https://github.com/savarin/hlawka-schatten/tree/1829591140522193a81ae721330e4d775c81123e): complete BLUEPRINT.md and TraceEndpoint.lean inspected. TraceEndpoint definitions 84–91 match the matrices entrywise after s=sqrt(t), c=sqrt(1-t). The traceEndpoint_tripleGap and traceEndpoint_pairGapSum identities and endpoint theorem establish inherited p=1 facts, not formal certification of this paper's general-p expansions. ScalarRatio.lean passages 23–38, 344–363, 500–542 and 600–608 were inspected for the fixed-p quotient, removable value, compactification and positive finite bounds. No Lean compilation or complete formal-library audit was performed. Current main was checked as commit 5eb5b1b665c566ddba25f1597ba2d30a54cafa07, dated 24 October 2026; this does not cover every branch.
+- **Colbrook.** [MI-25 solution.tex](https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-inequalities-and-norms/MI-25/solution.tex), dated 11 September 2026, Theorem 1.1 and complete proof inspected. Its real 2-by-3 rank-one family proves a fixed-p=1 obstruction. Its asymptotic coefficient is not the present joint p-to-one coefficient. The [living MI-25 record](https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-inequalities-and-norms/MI-25/README.md) is a discovery/status source, not a replacement for that proof; current access date is 6 November 2026.
+- **Lee.** [arXiv:2610.23785v1](https://arxiv.org/html/2610.23785v1), 16 October 2026. Section 4.1, Theorem 4.3 and its complete polytope-support reduction proof, together with abstract/theorem scope and Esa discussion, inspected. This is an ordinary coordinate-space result, not a reduction of noncommuting Schatten triples to this paper's family. No audit of all proofs in the paper is claimed.
+
+## Contribution boundary
+
+The object, trace-endpoint failure and existence at fixed interior exponents are inherited. The bounded search did not locate the stated coupled endpoint rate, second reciprocal coefficient or uniform family-maximizer localization. The next displacement and compact-scale loss are modest consequences of that analysis. The fixed-amplitude comparison is a restricted enlargement, not optimization over amplitudes moving with the exponent. Neither a matching upper bound nor equality of the family optimum with the unrestricted constant is established.
+
+## Search coverage and limits
+
+Queries covered Schatten/Hlawka with endpoint, logarithmic, p-1, 2/3 and 3/4 terminology, plus Evidence Press site search. The then-current 252-release Evidence Press authored Markdown and metadata catalogue had no Hlawka/Hornich hit. The public OpenAI/math CONTENTS index was checked for Hlawka, Hornich and Schatten: no matching indexed topic was found; the Schatten hit concerned a Thorp-shuffle moment bound. This was not a full-text review of every archive attachment or corpus PDF. All Esa branches, subscription indexes and every cited survey were not searched; no author contact occurred. Supplied OEIS/Niculescu leads were not freshly verified and are not relied on as inspected evidence.
+
+The schema field `sourcesReadInFull` in RESEARCH_GATES.json records fully inspected relevant arguments through its explicit `readWhat` scope, not a claim that every page of each work was read.
+

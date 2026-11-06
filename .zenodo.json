@@ -1,0 +1,17 @@
+{
+  "title": "An endpoint lower bound for Schatten–Hlawka constants",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [{"name": "Anonymous"}],
+  "version": "0.1.0-candidate",
+  "publication_date": "2026-11-06",
+  "doi": "10.5281/zenodo.23999268",
+  "access_right": "open",
+  "license": "cc-zero",
+  "description": "Unrefereed, AI-assisted mathematical candidate on endpoint asymptotics for Schatten–Hlawka constants. An inherited two-dimensional projector family gives a quantitative lower bound; optimization and logarithmic parameter correction are established only within that family. No matching unrestricted upper bound, external peer review or proof-assistant verification is claimed. Original prose and data are CC0-1.0; original executable code is MIT. Publisher and repository operator: Evidence Press.",
+  "keywords": ["Schatten norms", "Hlawka inequality", "endpoint asymptotics", "matrix inequalities"],
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.23999267", "relation": "isVersionOf", "scheme": "doi"},
+    {"identifier": "https://github.com/ipitchford/schatten-hlawka-endpoint", "relation": "isSupplementTo", "scheme": "url"}
+  ]
+}
